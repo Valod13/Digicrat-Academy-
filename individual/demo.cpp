@@ -1,71 +1,63 @@
 #include <iostream>
+#include <string>
+class Car {
 
-void printinfo(std::string);
-void printHello();
-int square(int x);
-int add(int, int);
-int Maxnum(int, int);
-int factorial(int);
-bool isEven(int);
-int fibonachi(int);
-int sum(int a = 10, int b = 5);
-int multiply(int a, int b = 5, int c = 6);
+// Special Functions
+public:
+	Car(){
+		m_year = 2005;
+		m_name = "Unknown";
+		m_doors = 4;
+		m_windows = 6;
+		}
+	~Car(){
 
-int main() {
-	printinfo("Valod");
-	printHello();
-	std::cout << square(5) << std::endl;
-	std::cout << add(5, 5) << std::endl;
-	std::cout << Maxnum(4, 7) << std::endl;
-	std::cout << factorial(5) << std::endl;
-	std::cout << isEven(10) << std::endl;
-	std::cout << fibonachi(3) << std::endl;
-	std::cout << sum() << std::endl;
-	std::cout << multiply(5) << std::endl;
+		}
+// Public API
+public:
 
-	return 0;
+// Getter/Setters
+public:
+	void setYear(int year) {
+		if(year > 0){
+			year = m_year;
+			}else {
+					std::cout << "Write positive number" << std::endl;
+		 } }
+	int getYear() {
+			return m_year;
+		}
+
+	void setDoors(int doors) { 
+		if(doors < 4 | doors <= 2){
+			doors = m_doors;
+		}else {
+			std::cout << "Car can be from 2 to 4 doors" << std::endl;
+		} }
+	int getDoors() {
+		return m_doors;
+		}
+	
+	void setWindows(int windows) {
+		if(windows > 2 | windows <= 6){
+			windows = m_windows;
+			}else {
+				std::cout << "Car can be from 2 to 6 windows" << std::endl;
+		} }
+	int getWindows() { 
+		return m_windows;
+		}
+// Member Data
+private:
+	std::string m_name;
+	int m_year;
+	int m_doors;
+	int m_windows;
+};
+int main() {	
+	Car bmw;
+	bmw.setYear(2005);
+	bmw.setDoors(4);
+	std::cout << bmw.getYear() << bmw.getDoors() << std::endl;
+return 0;
 }
-
-void printinfo(std::string name) {
-	std::cout << name << std::endl;
-}
-
-void printHello() {
-std::cout << "Hello" << std::endl;
-}
-
-int square(int x) {
-	return x * x;
-}
-
-int add(int a, int b) {
-	return a + b;
-}
-
-int Maxnum(int a, int b) {
-	if(a > b) {
-		return a; 
-	}else {
-		return b; }
-}
-int factorial(int n) {
-	return n * (n - 1);
-}
-
-bool isEven(int n) {
-	if(n % 2 == 0) {
-		return true;
-	} else { return false; }
-}	
-
-int fibonachi(int n) {
-	return (n - 1) + (n - 2);
-}
-
-int sum(int a, int b ) {
-	return a + b;
-}
-
-int multiply(int a, int b, int c) {
-	return a * b * c;
-}	
